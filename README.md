@@ -1,1 +1,3 @@
-# write2file
+gcc Write2File.c
+
+./a.out file.txt
