@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include "writenew.h"
 
 int main_fun(int argc, char *argv){
         char *argmv[] = {"./a.out",argv};
@@ -27,7 +28,10 @@ int main(int argc , char *argv[]){
         }
 
         fprintf(stderr,"Press ctrl+D once done\n");
-        freopen(NULL,"rb",stdin);
+        if(!freopen(NULL,"rb",stdin)){
+            fprintf(stderr,"Can't open the file");
+            return (4);
+        }
         while(!feof(stdin)){
                 fread(buffer,bytesize,1,stdin);
                 fwrite(buffer,bytesize,1,ptr_myfile);
